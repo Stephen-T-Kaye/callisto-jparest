@@ -26,8 +26,5 @@ jobs:
     - name: Scan with SonarCloud
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST: https://sonarcloud.io/
-      run: >
-        mvn sonar:sonar --file pom.xml
-          -Dsonar.host.url=$SONAR_HOST
-          -Dsonar.login=$SONAR_TOKEN
+        SONAR_HOST: https://sonarcloud.io
+      run: mvn sonar:sonar --file pom.xml -Dsonar.host.url=$SONAR_HOST -Dsonar.login=$SONAR_TOKEN

@@ -23,8 +23,6 @@
         <!-- Sonar Properties -->
         <sonar.language>java</sonar.language>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.organization>ukhomeoffice</sonar.organization>
-        <sonar.projectName>callisto-jparest</sonar.projectName>
     </properties>
 
     <distributionManagement>
