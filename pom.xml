@@ -24,7 +24,14 @@
         <sonar.language>java</sonar.language>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.organization>stephen-t-kaye</sonar.organization>
+        <sonar.projectKey>stephen-t-kaye_callisto-jparest</sonar.projectKey>
         <sonar.projectName>stephen-t-kaye_callisto-jparest</sonar.projectName>
+        <sonar.language>java</sonar.language>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.sources>**/src</sonar.sources>
+        <sonar.exclusions>**/src/test/**/*.java</sonar.exclusions>
+        <sonar.tests>**/src</sonar.tests>
+        <sonar.test.inclusions>**/src/test/**/*.java</sonar.test.inclusions>
     </properties>
 
     <distributionManagement>
