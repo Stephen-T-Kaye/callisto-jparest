@@ -29,3 +29,5 @@ jobs:
         SONAR_HOST: https://sonarcloud.io/
       run: >
         mvn sonar:sonar --file pom.xml
+          -Dsonar.host.url=$SONAR_HOST
+          -Dsonar.login=$SONAR_TOKEN
