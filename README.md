@@ -12,69 +12,7 @@ associations. It also exposes a filter parameter for querying resources.
 - Allows to dynamically filter resources.
 - OpenAPI documentation for exposed endpoints
 
-## Getting Started
-
-The project can be run in VSCode by running the `Launch Demo` configuration.
-
-### If using VSCode
-
-Please note that calling lifecycle commands on projects doesn't work correctly for a multi module project.
-Instead try calling mvnw with the `-am` option and specify the target module with the `-pl` option.
-
-```bash
-$ mvnw package -pl demo -am
-```
-
-#### VS Code extensions
-
-- Extension Pack for Java
-- Lombok Annotations Support
-
-#### JDK configuration
-
-If experiencing build errors check your JDK is configured correctly:
-
-Command + , to open settings.
-
-Search for "java runtime" and click the "Edit in settings.json" link under Java › Configuration: Runtimes.
-
-Enter the configuration similar to below. Ensure you specify the correct version name and path to your installed JDK.
-
-```
-"java.configuration.runtimes": [
-
-    {
-      "name": "JavaSE-17",
-      "path": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
-    }
-  ]
-```
-
-## Building from Source
-
-JPA Rest can be easily built with the maven wrapper.
-You also need JDK 17.
-
-```bash
- $ ./mvnw clean install
-```
-
-## Bumping Versions
-To update the parent pom version globally throughout the project run the following command.
-
-```bash
-  $ mvn versions:set -DnewVersion={version} -f pom.xml
-```
-When pushing a branch jparest will automatically deploy a snapshot image to github packages. The naming convention for this
-is as follows 
-
-```bash
-{Version-Number}-{Jira-Reference}-SNAPSHOT
-```
-## Merging into Main
-Once a PR is merged into the main branch the snapshot suffix will be deleted from the version.
-The assigned version number will be used to create a version release in Github packages and a Github tag for backup.
-
+Jump to [Getting Started](#getting-started)
 
 ## Using Filters
 
@@ -144,3 +82,94 @@ An example of the filter request parameter using multiple conditions is as follo
 | && | and| Expression | Expression |    
 | \|\| | or| Expression  | Expression |    
 | !| not|  | Expression  |
+
+## Getting Started
+
+The project contains a demo module that contains a simple demo application. The demo
+can be run in VSCode by running the `Launch Demo` configuration rom the Run and Debug menu.
+
+If you prefer to run from the command line run
+
+```
+./mvnw -pl demo exec:java -Dexec.mainClass="uk.gov.homeoffice.digital.sas.demo.EntitiesApplication"
+```
+
+To view the demo open http://localhost:5000/swagger-ui/index.html in your browser.
+
+## Tests
+
+The project contains unit tests using JUnit and acceptance test written for cucumber.
+
+To run all tests run
+```
+./mvnw test
+```
+
+To run just the acceptance tests run
+
+```
+./mvnw test -pl cucumber-jparest
+```
+
+The HTML cucumber report will be output to `./cucumber-jparest/target/cucumber-report.html`
+Code coverage reports are found `./jparest/target/site/jacoco/index.html` and `./cucumber-jparest/target/site/jacoco/index.html`
+
+## Building from Source
+
+JPA Rest can be easily built with the maven wrapper.
+You also need JDK 17.
+
+```bash
+ $ ./mvnw clean install
+```
+
+## Bumping Versions
+To update the parent pom version globally throughout the project run the following command.
+
+```bash
+  $ mvn versions:set -DnewVersion={version} -f pom.xml
+```
+When pushing a branch a GitHub action will automatically deploy a snapshot image to github packages. The naming convention for this
+is as follows 
+
+```bash
+{Version-Number}-{Jira-Reference}-SNAPSHOT
+```
+
+## Merging into Main
+Once a PR is merged into the main branch the snapshot suffix will be deleted from the version.
+The assigned version number will be used to create a version release in Github packages and a Github tag for backup.
+
+## Troubleshooting
+
+### VSCode
+
+#### Lifecycle Commands
+
+Please note that calling lifecycle commands on projects doesn't work correctly for a multi module project.
+Instead try calling mvnw with the `-am` option and specify the target module with the `-pl` option.
+
+```bash
+$ ./mvnw package -pl demo -am
+```
+
+
+#### JDK configuration
+
+If experiencing build errors check your JDK is configured correctly:
+
+Command + , to open settings.
+
+Search for "java runtime" and click the "Edit in settings.json" link under Java › Configuration: Runtimes.
+
+Enter the configuration similar to below. Ensure you specify the correct version name and path to your installed JDK.
+
+```
+"java.configuration.runtimes": [
+
+    {
+      "name": "JavaSE-17",
+      "path": "/Library/Java/JavaVirtualMachines/openjdk.jdk/Contents/Home"
+    }
+  ]
+```
