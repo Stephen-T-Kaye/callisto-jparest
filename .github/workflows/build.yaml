@@ -28,4 +28,4 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST: https://sonarcloud.io/
       run: >
-        mvn -s sonar:sonar --file pom.xml
+        mvn sonar:sonar --file pom.xml
