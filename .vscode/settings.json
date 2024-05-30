@@ -9,5 +9,6 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "cucumber.glue": [
         "**/*.java"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
