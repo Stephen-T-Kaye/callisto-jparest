@@ -21,13 +21,9 @@
         <jacoco.version>0.8.7</jacoco.version>
         <checkstyle-maven-plugin.version>3.2.0</checkstyle-maven-plugin.version>
         <!-- Sonar Properties -->
-        <sonar.language>java</sonar.language>
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.jacoco.reportPaths>/target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.organization>stephen-t-kaye</sonar.organization>
         <sonar.projectKey>stephen-t-kaye_callisto-jparest</sonar.projectKey>
         <sonar.projectName>stephen-t-kaye_callisto-jparest</sonar.projectName>
-        <sonar.language>java</sonar.language>
     </properties>
 
     <distributionManagement>
