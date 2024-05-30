@@ -1,0 +1,14 @@
+{
+    "java.test.defaultConfig": "callisto",
+    "java.test.config": [
+        {
+            "name": "callisto",
+            "vmargs": [ "-Dcucumber.jparest.tenantId=b7e813a2-bb28-11ec-8422-0242ac120002"],
+        }
+    ],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cucumber.glue": [
+        "**/*.java"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
