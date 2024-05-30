@@ -26,10 +26,3 @@ jobs:
     - uses: sonarsource/sonarcloud-github-action@master
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with:
-        args: >
-          -Dsonar.organization=stephen-t-kaye
-          -Dsonar.projectKey=callisto-jparest
-          -Dsonar.projectName=callisto-jparest
-          -Dsonar.qualitygate.wait=true
-          -Dsonar.verbose=true
