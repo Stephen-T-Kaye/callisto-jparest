@@ -2,8 +2,7 @@ name: Maven Package
 
 on: 
   push:
-    branches:
-      - *
+    branches: []
   pull_request:
     branches:
       - main
