@@ -18,9 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Retrieve git history
-      run: |
-        git fetch origin +refs/heads/main:
+      with:
+        fetch-depth: 0
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
