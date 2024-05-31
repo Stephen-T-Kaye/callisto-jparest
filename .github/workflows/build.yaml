@@ -1,11 +1,11 @@
 name: Maven Package
 
-on: 
-  push:
-    branches: []
-  pull_request:
-    branches:
-      - main
+on: push
+  # push:
+  #   branches: []
+  # pull_request:
+  #   branches:
+  #     - main
 
 
 jobs:
