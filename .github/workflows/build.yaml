@@ -47,7 +47,3 @@ jobs:
         - version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         - mvn versions:set -DnewVersion=$version$${snapshotSuffix}-SNAPSHOT -f pom.xml
         - mvn -s ./jparest_settings.xml -f pom.xml install -B deploy -DsnapshotSuffix=$${snapshotSuffix}-SNAPSHOT -DskipTests
-      when:
-        branch:
-          exclude:
-          - main
