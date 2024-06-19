@@ -49,3 +49,12 @@ jobs:
         version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         mvn versions:set -DnewVersion=$version${snapshotSuffix}-SNAPSHOT -f pom.xml
         mvn -s ./jparest_settings.xml -f pom.xml install -B deploy -DsnapshotSuffix=${snapshotSuffix}-SNAPSHOT -DskipTests
+
+    - name: publish package
+      if: ${{ github.event_name == 'push' && github.ref_name == 'main'  }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        mvn -s ./jparest_settings.xml -f pom.xml install -B org.apache.maven.plugins:maven-deploy-plugin:2.8.2:deploy -DskipTests
+        versionExtract=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+        sed -i "/^version=/{s|.$|"=$versionExtract"|}" git_tag.sh
