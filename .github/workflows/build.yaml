@@ -42,8 +42,7 @@ jobs:
 
     - name: publish snapshot
       if: ${{ github.event_name == 'pull_request' }}
-      image: maven:3.8-openjdk-17
-      commands:
+      run:
         - "BRANCH=$(echo $DRONE_BRANCH | tr '[:lower:]' '[:upper:]') && [[ $BRANCH =~ (SK-[0-9]*) ]] && snapshotSuffix=$${match/#E/-E}$${BASH_REMATCH/#E/-E}"
         - version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         - mvn versions:set -DnewVersion=$version$${snapshotSuffix}-SNAPSHOT -f pom.xml
