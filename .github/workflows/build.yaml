@@ -42,6 +42,8 @@ jobs:
 
     - name: publish snapshot
       if: ${{ github.event_name == 'push' && github.ref_name != 'main'  }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         BRANCH=$(echo $GITHUB_REF_NAME | tr '[:lower:]' '[:upper:]') && [[ $BRANCH =~ (SK-[0-9]*) ]] && snapshotSuffix=${match/#E/-E}${BASH_REMATCH/#E/-E}
         version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
